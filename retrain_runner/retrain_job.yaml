@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sentiment-analysis
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: retrain-job
+  namespace: sentiment-analysis
+spec:
+  # schedule: "0 0 * * *"  # Runs every day at midnight
+  template:
+        spec:
+          volumes:
+          - name: minikube-mount
+            hostPath:
+              path: /home/docker/hostvolume
+              type: Directory
+          containers:
+          - name: retrain-runner
+            image: whitewolfie/retrain-job:test
+            imagePullPolicy: Always
+            volumeMounts:
+              - name: minikube-mount
+                mountPath: /mnt/minikube
+            resources:
+              requests:
+                cpu: 14
+                memory: "12000000Ki"
+          restartPolicy: OnFailure
