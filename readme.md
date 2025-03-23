@@ -17,7 +17,7 @@ Models and dataset files are not included in this repository due to size constra
   - Notebook was run on Kaggle, and model files were recovered from persisted files.
 - **Location**: `dataset/`
 
-### T4. Wrapping the Model as an API
+### Wrapping the Model as an API
 - **Folder**: `inference/`
 - **Framework**: FastAPI
 - **Functionality**:
@@ -33,7 +33,7 @@ Models and dataset files are not included in this repository due to size constra
   - `Dockerfile`
   - `inference-deployment.yaml`
 
-### T5. Asynchronous Prediction for Large Batches
+### Asynchronous Prediction for Large Batches
 - **Folder**: `batch_runner/`
 - **Functionality**:
   - Periodic job in Kubernetes (minikube) runs daily to predict sentiment on a new batch of data.
@@ -50,7 +50,7 @@ Models and dataset files are not included in this repository due to size constra
   - `batch_job_manual.yaml` (for testing)
   - `batch_job.yaml` (for daily execution)
 
-### T6-T7. Data Drift & Model Retraining
+### Data Drift & Model Retraining
 #### Data Drift Monitoring
 - `check_data_distribution()` Function added to `batch_runner.py` to check class distribution in predicted data.
 - Sends Slack alerts in case of a major class imbalance.
