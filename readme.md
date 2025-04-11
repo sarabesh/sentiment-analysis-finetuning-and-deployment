@@ -1,4 +1,4 @@
-# FIne-Tuning BERT for Sentiment Analysis and Deployment
+# Fine-Tuning BERT for Sentiment Analysis and Deployment
 
 ## Overview
 This repo simulates how an ML model moves to production in an industry setting. The goal is to build, deploy, monitor, and retrain a sentiment analysis model using Kubernetes (minikube) and FastAPI.
